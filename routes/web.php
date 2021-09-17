@@ -19,7 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+
+Auth::routes(['register' => false]);
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'profile', 'as' => 'admin.'], function () {
     Route::resource('companies', CompanyController::class);
